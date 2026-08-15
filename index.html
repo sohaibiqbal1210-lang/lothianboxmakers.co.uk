@@ -318,17 +318,55 @@ footer b{color:#fff}
         <h3>Request a Quote</h3>
         <p style="margin-bottom:14px"><span class="phone"><a href="tel:07392770606">07392 770606</a></span><br>
         <a class="mail" href="mailto:sales@lothianboxmakers.co.uk">sales@lothianboxmakers.co.uk</a></p>
-        <form action="mailto:sales@lothianboxmakers.co.uk" method="post" enctype="text/plain" class="qform">
+        <form id="quoteForm" class="qform">
           <label for="qname">Name *</label>
-          <input id="qname" name="Name" type="text" required placeholder="Your name">
+          <input id="qname" name="name" type="text" required placeholder="Your name">
           <label for="qphone">Phone Number *</label>
-          <input id="qphone" name="Phone" type="tel" required placeholder="Your phone number">
+          <input id="qphone" name="phone" type="tel" required placeholder="Your phone number">
           <label for="qemail">Email</label>
-          <input id="qemail" name="Email" type="email" placeholder="Your email address">
+          <input id="qemail" name="email" type="email" placeholder="Your email address">
           <label for="qmsg">What do you need? *</label>
-          <textarea id="qmsg" name="Requirement" rows="3" required placeholder="Box size (L x W x H), quantity, single or double wall"></textarea>
+          <textarea id="qmsg" name="requirement" rows="3" required placeholder="Box size (L x W x H), quantity, single or double wall"></textarea>
           <button type="submit" class="btn orange" style="border:none;cursor:pointer;width:100%">Send Quote Request</button>
+          <p id="formMsg" style="margin-top:12px;font-weight:700;display:none"></p>
         </form>
+        <script>
+        document.getElementById('quoteForm').addEventListener('submit', function(e){
+          e.preventDefault();
+          var form = e.target;
+          var msg = document.getElementById('formMsg');
+          var btn = form.querySelector('button');
+          var data = {
+            name: form.name.value,
+            phone: form.phone.value,
+            email: form.email.value,
+            requirement: form.requirement.value
+          };
+          btn.disabled = true; btn.textContent = 'Sending...';
+          fetch('https://formspree.io/f/xjgzgrog', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json', 'Accept': 'application/json'},
+            body: JSON.stringify(data)
+          }).then(function(response){
+            msg.style.display = 'block';
+            if (response.ok) {
+              form.reset();
+              msg.style.color = '#1E8E3E';
+              msg.textContent = 'Thank you — your enquiry has been sent. We will be in touch shortly.';
+              btn.textContent = 'Sent';
+            } else {
+              msg.style.color = '#C0392B';
+              msg.textContent = 'Sorry, something went wrong. Please call 07392 770606.';
+              btn.disabled = false; btn.textContent = 'Send Quote Request';
+            }
+          }).catch(function(){
+            msg.style.display = 'block';
+            msg.style.color = '#C0392B';
+            msg.textContent = 'Sorry, something went wrong. Please call 07392 770606.';
+            btn.disabled = false; btn.textContent = 'Send Quote Request';
+          });
+        });
+        </script>
       </div>
       <div class="contact-card">
         <h3>Visit / Collection</h3>
