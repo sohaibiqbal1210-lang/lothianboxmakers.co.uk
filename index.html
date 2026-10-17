@@ -30,9 +30,9 @@
   .fill__uses { display:grid; gap:1.75rem; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); margin-top:2.5rem; }
   .fill__use h3 { font-size:1.1rem; margin:0 0 .5rem; }
   .fill__use p { margin:0 0 .6rem; font-size:.95rem; }
-  .fill__photo { margin-top:2rem; border-radius:10px; overflow:hidden; }
-  .fill__photo img { display:block; width:100%; height:auto; }
-  @media (max-width:640px) { .fill__price { font-size:1.3rem; } }
+  .fill__photos { display:grid; gap:1rem; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); margin-top:2rem; }
+  .fill__photos img { display:block; width:100%; height:220px; object-fit:cover; border-radius:10px; background:var(--surface-2,#eef1f5); }
+  @media (max-width:640px) { .fill__price { font-size:1.3rem; } .fill__photos img { height:200px; } }
 </style>
 
 <script>
@@ -306,12 +306,11 @@
         ring 07392 770606.
       </p>
 
-      <!-- PHOTO: put your photo in the repo root as shredded-cardboard.jpg,
-           then delete this comment line and the one after the div.
-      <div class="fill__photo">
-        <img src="shredded-cardboard.jpg" alt="Loose shredded brown kraft cardboard packing material" loading="lazy">
+      <div class="fill__photos">
+        <img src="shredded-1.jpg" alt="Loose shredded brown kraft cardboard packing material" loading="lazy">
+        <img src="shredded-2.jpg" alt="Shredded cardboard bagged and ready to collect" loading="lazy">
+        <img src="shredded-3.jpg" alt="Close up of plain unprinted shredded kraft cardboard" loading="lazy">
       </div>
-      -->
 
       <div class="fill__uses">
         <div class="fill__use">
