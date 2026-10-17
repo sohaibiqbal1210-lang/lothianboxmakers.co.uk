@@ -19,6 +19,22 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
+
+<style>
+  /* shredded cardboard section. Kept here so style.css is untouched. */
+  .fill { display:grid; gap:1.25rem; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); margin-top:2rem; }
+  .fill__card { border:1px solid var(--line,#d8dde5); border-radius:10px; padding:1.25rem; background:var(--surface,#fff); }
+  .fill__card h3 { margin:0 0 .35rem; font-size:1.05rem; }
+  .fill__price { font-weight:800; font-size:1.45rem; margin:.4rem 0 .5rem; }
+  .fill__card p:last-child { margin:0; font-size:.9rem; opacity:.85; }
+  .fill__uses { display:grid; gap:1.75rem; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); margin-top:2.5rem; }
+  .fill__use h3 { font-size:1.1rem; margin:0 0 .5rem; }
+  .fill__use p { margin:0 0 .6rem; font-size:.95rem; }
+  .fill__photo { margin-top:2rem; border-radius:10px; overflow:hidden; }
+  .fill__photo img { display:block; width:100%; height:auto; }
+  @media (max-width:640px) { .fill__price { font-size:1.3rem; } }
+</style>
+
 <script>
   (function () {
     try {
@@ -60,7 +76,9 @@
     { "@type": "Offer", "itemOffered": { "@type": "Product", "name": "E-commerce packaging boxes" } },
     { "@type": "Offer", "itemOffered": { "@type": "Product", "name": "Heavy duty double wall cartons" } },
     { "@type": "Offer", "itemOffered": { "@type": "Product", "name": "Food industry outer cases" } },
-    { "@type": "Offer", "itemOffered": { "@type": "Product", "name": "Layer pads, trays and dividers" } }
+    { "@type": "Offer", "itemOffered": { "@type": "Product", "name": "Layer pads, trays and dividers" } },
+    { "@type": "Offer", "itemOffered": { "@type": "Product", "name": "Shredded cardboard void fill" } },
+    { "@type": "Offer", "itemOffered": { "@type": "Product", "name": "Shredded cardboard small animal bedding" } }
   ]
 }
 </script>
@@ -75,6 +93,7 @@
     <nav class="nav" id="nav" aria-label="Main">
       <a href="#finder">Box finder</a>
       <a href="#products">Products</a>
+      <a href="#voidfill">Shredded card</a>
       <a href="#grades">Board grades</a>
       <a href="#areas">Delivery</a>
       <a href="#contact">Get a price</a>
@@ -246,7 +265,89 @@
       </div>
     </div>
   </section>
-  <section class="section" id="grades" style="background: var(--surface-2);">
+
+  <!-- ====================================== shredded cardboard -->
+  <section class="section" id="voidfill" style="background: var(--surface-2);">
+    <div class="wrap">
+      <p class="kicker">New</p>
+      <h2 class="h-sect">Shredded cardboard</h2>
+      <p class="lede">
+        We shred our own production offcuts here in the unit, so this is clean plain
+        brown kraft with no ink, no tape, no staples and no printed paper mixed in.
+        Loose fill for packing, and bedding for small animals. Collect from Livingston,
+        or free delivery within 20 miles.
+      </p>
+
+      <div class="fill">
+        <div class="fill__card">
+          <h3>2kg bag</h3>
+          <p class="fill__price">&pound;6.99</p>
+          <p>Enough for a handful of parcels, or a couple of cage changes.</p>
+        </div>
+        <div class="fill__card">
+          <h3>5kg bag</h3>
+          <p class="fill__price">&pound;12.99</p>
+          <p>The usual size for small online sellers.</p>
+        </div>
+        <div class="fill__card">
+          <h3>10kg sack</h3>
+          <p class="fill__price">&pound;19.99</p>
+          <p>For a busier week, or a house move.</p>
+        </div>
+        <div class="fill__card">
+          <h3>20kg bale</h3>
+          <p class="fill__price">&pound;34.99</p>
+          <p>Best value per kilo. Collection or local delivery only.</p>
+        </div>
+      </div>
+
+      <p class="lede" style="margin-top:1.25rem; font-size:.92rem;">
+        All prices plus VAT. Bulk and pallet quantities priced on request &mdash;
+        ring 07392 770606.
+      </p>
+
+      <!-- PHOTO: put your photo in the repo root as shredded-cardboard.jpg,
+           then delete this comment line and the one after the div.
+      <div class="fill__photo">
+        <img src="shredded-cardboard.jpg" alt="Loose shredded brown kraft cardboard packing material" loading="lazy">
+      </div>
+      -->
+
+      <div class="fill__uses">
+        <div class="fill__use">
+          <h3>Packing and void fill</h3>
+          <p>
+            A straight swap for bubble wrap and polystyrene chips. It fills the gaps
+            around an item so nothing shifts in transit, which is what actually causes
+            damage. Fully recyclable and compostable, so your customer puts it straight
+            in the garden waste.
+          </p>
+          <p>Order it alongside your boxes and it goes on the same delivery.</p>
+        </div>
+        <div class="fill__use">
+          <h3>Small animal bedding</h3>
+          <p>
+            Suitable for rabbits, guinea pigs, hamsters and nesting. Plain unprinted
+            kraft only. We never shred printed card, glossy card, newspaper or anything
+            with tape or staples in it, because this comes off our own production
+            offcuts rather than from waste collection.
+          </p>
+          <p>
+            Bring your own tub or sack and we will fill it at the unit if you would
+            rather not take a bag.
+          </p>
+        </div>
+      </div>
+
+      <div style="margin-top:2rem">
+        <a class="btn btn--primary" href="#contact">Order or ask a question</a>
+        <a class="btn btn--ghost" href="tel:+447392770606" style="margin-left:.5rem">Call 07392 770606</a>
+      </div>
+    </div>
+  </section>
+  <!-- ================================== end shredded cardboard -->
+
+  <section class="section" id="grades">
     <div class="wrap">
       <h2 class="h-sect">Pick the right board</h2>
       <p class="lede">
@@ -465,6 +566,7 @@
           <li><a href="#products">Moving and storage boxes</a></li>
           <li><a href="#products">E-commerce packaging</a></li>
           <li><a href="#products">Heavy duty cartons</a></li>
+          <li><a href="#voidfill">Shredded cardboard</a></li>
           <li><a href="#grades">Board grades</a></li>
           <li><a href="#finder">Box finder</a></li>
         </ul>
